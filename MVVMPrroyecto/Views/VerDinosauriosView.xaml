@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="MVVMPrroyecto.Views.VerDinosauriosView" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVMPrroyecto.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"  Background="Maroon">
+
+ 
+    <DockPanel  Margin="5" > 
+
+        <TextBlock  DockPanel.Dock="Top" FontSize="30"   
+                   Background="Maroon" Foreground="White" TextAlignment="Center" Padding="20">LISTA DE DINOSAURIOS
+        </TextBlock>
+
+        <StackPanel Margin="10,0">
+            <Border   Margin="10">
+
+                <ListBox  Width="250" >
+                    <ListBoxItem>Triceratops</ListBoxItem>
+                    <ListBoxItem>Braquiosaurio</ListBoxItem>
+                    <ListBoxItem>Velociraptor</ListBoxItem>
+                    <ListBoxItem>Parasaurolofus</ListBoxItem>
+                    <ListBoxItem>Espinosaurio</ListBoxItem>
+                    <ListBoxItem>Gallimimo</ListBoxItem>
+                    <ListBoxItem>Ceratosaurus</ListBoxItem>
+                    <ListBoxItem>Allosaurus</ListBoxItem>
+                </ListBox>
+            </Border>
+            <Button Command="{Binding MostrarVistaVerCommand}" CommandParameter="agregar">Agregar Dinosaurio</Button>
+            <TextBox></TextBox>
+            <Button Command="{Binding MostrarVistaVerCommand}" CommandParameter="eliminar">Eliminar Dinosaurio</Button>
+
+        </StackPanel>
+
+
+
+        <DataGrid Margin="1" ItemsSource="{Binding Dinosaurios}" CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Binding="{Binding Nombre}" Width=".3*" Header="Nombre"/>
+                <DataGridTextColumn  Binding="{Binding Descripcion}" Width=".7*" Header="Descripcion"/> 
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+    </DockPanel>
+
+
+</UserControl>
